@@ -18,11 +18,13 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
+@Builder
 @Table(name= "TB_COURSES")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 public class CourseModel implements Serializable {
 
     @Serial
@@ -48,7 +50,7 @@ public class CourseModel implements Serializable {
 
     @Column(nullable = false, name = "last_update_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
-    @CreationTimestamp
+    @UpdateTimestamp
     private LocalDateTime lastUpdateDate;
 
     @Column(nullable = false, name = "course_status")

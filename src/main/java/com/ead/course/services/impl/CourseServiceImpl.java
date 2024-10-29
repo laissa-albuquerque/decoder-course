@@ -12,6 +12,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -35,5 +37,20 @@ public class CourseServiceImpl implements CourseService {
             moduleRepository.deleteAll(modules);
         }
         courseRepository.delete(course);
+    }
+
+    @Override
+    public CourseModel save(CourseModel course) {
+        return courseRepository.save(course);
+    }
+
+    @Override
+    public Optional<CourseModel> findById(UUID id) {
+        return courseRepository.findById(id);
+    }
+
+    @Override
+    public List<CourseModel> findAll() {
+        return courseRepository.findAll();
     }
 }
