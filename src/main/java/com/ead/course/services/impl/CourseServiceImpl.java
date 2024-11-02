@@ -53,4 +53,9 @@ public class CourseServiceImpl implements CourseService {
     public List<CourseModel> findAll() {
         return courseRepository.findAll();
     }
+
+    @Override
+    public Optional<CourseModel> findByName(String name) {
+        return courseRepository.findByNameIgnoreCase(name);
+    }
 }

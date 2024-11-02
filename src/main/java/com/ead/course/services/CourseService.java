@@ -12,4 +12,5 @@ public interface CourseService {
     CourseModel save(CourseModel course);
     Optional<CourseModel> findById(UUID id);
     List<CourseModel> findAll();
+    Optional<CourseModel> findByName(String name);
 }
