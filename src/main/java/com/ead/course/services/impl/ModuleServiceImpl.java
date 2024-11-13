@@ -7,7 +7,6 @@ import com.ead.course.repositories.ModuleRepository;
 import com.ead.course.services.ModuleService;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,5 +43,10 @@ public class ModuleServiceImpl implements ModuleService {
     @Override
     public List<ModuleModel> findAll() {
         return moduleRepository.findAll();
+    }
+
+    @Override
+    public Optional<ModuleModel> findByTitle(String name) {
+        return moduleRepository.findByTitleIgnoreCase(name);
     }
 }

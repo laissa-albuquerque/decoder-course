@@ -35,7 +35,7 @@ public class ModuleController {
             courseSelected = courseService.findByName(courseName);
             if (courseSelected.isPresent()) {
                 return ResponseEntity.status(HttpStatus.CREATED).body(moduleService.saveModel(moduleMapper.toModel(module, courseSelected.get())));
-            } else return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Course not found in the database");
+            } else return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Course not found in the database.");
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("It is necessary to associate a module with a course!");
     }
@@ -68,7 +68,7 @@ public class ModuleController {
     }
 
     @GetMapping("/{moduleId}")
-    ResponseEntity<Object> getById(@PathVariable(value = "moduleId") UUID moduleId) {
+    ResponseEntity<Object> getModuleById(@PathVariable(value = "moduleId") UUID moduleId) {
         Optional<ModuleModel> moduleSelected = moduleService.findById(moduleId);
         if (!moduleSelected.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Module not found");

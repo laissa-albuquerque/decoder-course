@@ -13,4 +13,5 @@ public interface ModuleService {
     void delete(ModuleModel module);
     Optional<ModuleModel> findById(UUID idModule);
     List<ModuleModel> findAll();
+    Optional<ModuleModel> findByTitle(String name);
 }
